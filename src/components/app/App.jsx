@@ -1,26 +1,34 @@
-import React from "react";
+import React, { Component } from "react";
 
 import Header from "../header";
 import RandomPlanet from "../random-planet";
-import ItemList from "../item-list";
-import PersonDetails from "../person-details";
+import PeoplePage from "../people-page";
+import Error from "../error";
 
 import "./app.css";
 
-export default function App() {
-  return (
-    <div>
-      <Header />
-      <RandomPlanet />
+export default class App extends Component {
+  state = {
+    hasError: false
+  };
 
-      <div className="row mb2">
-        <div className="col-md-6">
-          <ItemList />
-        </div>
-        <div className="col-md-6">
-          <PersonDetails />
-        </div>
+  componentDidCatch() {
+    console.log("componentDidCatch()");
+    this.setState({ hasError: true });
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <Error />;
+    }
+    return (
+      <div>
+        <Header />
+        <RandomPlanet />
+        <PeoplePage />
+        <PeoplePage />
+        <PeoplePage />
       </div>
-    </div>
-  );
+    );
+  }
 }
