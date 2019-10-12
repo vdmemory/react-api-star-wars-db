@@ -8,8 +8,10 @@ const transformPerson = person => {
     id: extractId(person),
     name: person.name,
     gender: person.gender,
-    birthYear: person.birthYear,
-    eyeColor: person.eyeColor
+    birthYear: person.birth_year,
+    eyeColor: person.eye_color,
+    height: person.height,
+    mass: person.mass
   };
 };
 
@@ -18,7 +20,8 @@ const transformPlanet = planet => {
     id: extractId(planet),
     name: planet.name,
     population: planet.population,
-    rotationPeriod: planet.rotation_period,
+    terrain: planet.terrain,
+    climate: planet.climate,
     diameter: planet.diameter
   };
 };
@@ -29,11 +32,11 @@ const transformStarship = starship => {
     name: starship.name,
     model: starship.model,
     manufacturer: starship.manufacturer,
-    costInCredits: starship.costInCredits,
+    starshipClass: starship.starship_class,
     length: starship.length,
     crew: starship.crew,
     passengers: starship.passengers,
-    cargoCapacity: starship.cargoCapacity
+    hyperdriveRating: starship.hyperdrive_rating
   };
 };
 

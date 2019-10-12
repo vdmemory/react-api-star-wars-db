@@ -1,11 +1,49 @@
-.item-list {
-  margin-bottom: 1rem;
+.item_list {
+  position: relative;
+  width: 450px;
+  margin: 0 auto 0;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
 }
-
 .item-list .list-group-item {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  color: #fff;
+  margin: 5px 0;
+  transition: 0.5s;
   cursor: pointer;
 }
-
+.item-list .list-group-item:nth-child(1) {
+  background: rgba(225, 225, 225, 0.5);
+}
+.item-list .list-group-item:nth-child(2) {
+  background: rgba(255, 255, 255, 0.4);
+}
+.item-list .list-group-item:nth-child(3) {
+  background: rgba(255, 255, 255, 0.3);
+}
+.item-list .list-group-item:nth-child(4) {
+  background: rgba(255, 255, 255, 0.2);
+}
+.item-list .list-group-item span:nth-child(1) {
+  width: 300px;
+}
+.item-list .list-group-item span:nth-child(2) {
+  width: 200px;
+}
+.item-list .list-group-item span:nth-child(3) {
+  width: 100px;
+  text-align: right;
+}
+.item-list .list-group-item span:nth-child(4) {
+  width: 70px;
+  text-align: right;
+}
 .item-list .list-group-item:hover {
-  background-color: #444;
+  transform: scale(1.06);
+  background: rgba(0, 188, 134, 0.8);
 }

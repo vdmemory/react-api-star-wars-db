@@ -1,39 +1,52 @@
 import React, { Component } from "react";
 
 import ItemList from "../item-list";
-import PersonDetails from "../person-details";
-import Error from "../error";
+import ItemDetails, { Record } from "../item-details/ItemDetails";
+import SwapiService from "../../services/swapi-service";
+import Row from "../row";
+import ErrorBoundry from "../error-boundry";
+
+// import Record from "../record";
 
 export default class PeoplePage extends Component {
+  swapiService = new SwapiService();
   state = {
-    selectedPerson: 1,
-    hasError: false
+    selectedItem: 11
   };
 
-  onPersonSelected = id => {
+  onItemSelected = id => {
     this.setState({
-      selectedPerson: id
+      selectedItem: id
     });
   };
 
-  componentDidCatch() {
-    console.log("componentDidCatch()");
-    this.setState({ hasError: true });
-  }
-
   render() {
-    if (this.state.hasError) {
-      return <Error />;
-    }
-    return (
-      <div className="row mb2">
-        <div className="col-md-6">
-          <ItemList onItemSelected={this.onPersonSelected} />
-        </div>
-        <div className="col-md-6">
-          <PersonDetails personId={this.state.selectedPerson} />
-        </div>
-      </div>
+    const itemList = (
+      <ErrorBoundry>
+        <ItemList
+          onItemSelected={this.onItemSelected}
+          getData={this.swapiService.getAllPeople}
+        >
+          {i => `${i.name} (${i.birthYear})`}
+        </ItemList>
+      </ErrorBoundry>
     );
+
+    const itemDetails = (
+      <ErrorBoundry>
+        <ItemDetails
+          itemId={this.state.selectedItem}
+          getData={this.props.getPerson}
+          getImage={this.props.getPersonImage}
+        >
+          <Record field="gender" label="Gender" />
+          <Record field="height" label="Height" />
+          <Record field="mass" label="Mass" />
+          <Record field="birthYear" label="BirthYear" />
+        </ItemDetails>
+      </ErrorBoundry>
+    );
+
+    return <Row leftElem={itemList} rightElem={itemDetails} />;
   }
 }

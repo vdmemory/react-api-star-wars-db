@@ -8,15 +8,33 @@ export default function Header() {
       <h3>
         <a href="#">Star DB</a>
       </h3>
-      <ul className="d-flex">
-        <li>
-          <a href="#">People</a>
+      <ul className="list d-flex">
+        <li className="item">
+          <a href="#" className="link">
+            People
+            <span />
+            <span />
+            <span />
+            <span />
+          </a>
         </li>
-        <li>
-          <a href="#">Planets</a>
+        <li className="item">
+          <a href="#" className="link">
+            Planets
+            <span />
+            <span />
+            <span />
+            <span />
+          </a>
         </li>
-        <li>
-          <a href="#">Starships</a>
+        <li className="item">
+          <a href="#" className="link">
+            Starships
+            <span />
+            <span />
+            <span />
+            <span />
+          </a>
         </li>
       </ul>
     </div>
