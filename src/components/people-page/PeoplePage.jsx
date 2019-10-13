@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import ItemList from "../item-list";
+import { PersonList } from "../sw-compnents";
 import ItemDetails, { Record } from "../item-details/ItemDetails";
 import SwapiService from "../../services/swapi-service";
 import Row from "../row";
@@ -23,12 +23,7 @@ export default class PeoplePage extends Component {
   render() {
     const itemList = (
       <ErrorBoundry>
-        <ItemList
-          onItemSelected={this.onItemSelected}
-          getData={this.swapiService.getAllPeople}
-        >
-          {i => `${i.name} (${i.birthYear})`}
-        </ItemList>
+        <PersonList>{i => `${i.name} (${i.birthYear})`}</PersonList>
       </ErrorBoundry>
     );
 

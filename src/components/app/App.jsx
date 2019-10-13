@@ -1,32 +1,55 @@
 import React, { Component } from "react";
 
 import SwapiService from "../../services/swapi-service";
+import DemmySwapiService from "../../services/demmy-swapi-service";
 import Header from "../header";
 
 import RandomPlanet from "../random-planet";
-import PeoplePage from "../people-page";
+// import PeoplePage from "../people-page";
 
 import ErrorBoundry from "../error-boundry";
 
 // import ItemDetails, { Record } from "../item-details/ItemDetails";
 // import ItemList from "../item-list";
 
+import { SwapiServiceProvider } from "../swapi-service-context/SwapiServiceContext";
+
+import {
+  PersonDetails,
+  PlanetDetails,
+  StarshipDetails,
+  PersonList,
+  PlanetList,
+  StarshipList
+} from "../sw-compnents";
+
 // import Row from "../row";
 
 import "./app.css";
 
 export default class App extends Component {
-  swapiService = new SwapiService();
+  state = {
+    swapiService: new DemmySwapiService()
+  };
+
+  onServiceChange = () => {
+    this.setState(({ swapiService }) => {
+      const Service =
+        swapiService instanceof SwapiService ? DemmySwapiService : SwapiService;
+      console.log(Service.name);
+      return { swapiService: new Service() };
+    });
+  };
 
   render() {
-    const {
-      getPerson,
-      getStarship,
-      getPersonImage,
-      getStarshipImage,
-      getAllPeople,
-      getAllStarships
-    } = this.swapiService;
+    // const {
+    //   getPerson,
+    //   getStarship,
+    //   getPersonImage,
+    //   getStarshipImage,
+    //   getAllPeople,
+    //   getAllStarships
+    // } = this.swapiService;
 
     // const personDetails = (
     //   <ItemDetails itemId={11} getData={getPerson} getImage={getPersonImage}>
@@ -61,13 +84,29 @@ export default class App extends Component {
 
     return (
       <ErrorBoundry>
-        <div>
-          <Header />
-          <RandomPlanet />
-          <PeoplePage getPerson={getPerson} getPersonImage={getPersonImage} />
-          {/* <Row leftElem={personDetails} rightElem={starshipDetails} /> */}
-          {/* <Row leftElem={personItem} rightElem={starshipItem} /> */}
-        </div>
+        <SwapiServiceProvider value={this.state.swapiService}>
+          <div>
+            <Header onSeviceChange={this.onServiceChange} />
+            <RandomPlanet />
+
+            <ErrorBoundry>
+              <PersonList />
+              <PlanetList />
+              <StarshipList />
+            </ErrorBoundry>
+
+            <ErrorBoundry>
+              <PersonDetails itemId={11} />
+              <PlanetDetails itemId={5} />
+              <StarshipDetails itemId={9} />
+            </ErrorBoundry>
+
+            {/* <PeoplePage getPerson={getPerson} getPersonImage={getPersonImage} /> */}
+
+            {/* <Row leftElem={personDetails} rightElem={starshipDetails} /> */}
+            {/* <Row leftElem={personItem} rightElem={starshipItem} /> */}
+          </div>
+        </SwapiServiceProvider>
       </ErrorBoundry>
     );
   }

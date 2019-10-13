@@ -110,3 +110,39 @@
   bottom: -50%;
   right: 0;
 }
+
+.pulse_btn {
+  color: #002b36;
+  background: rgb(0, 188, 140);
+  margin: 5px 5px 10px 5px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: 10px;
+  text-align: center;
+  line-height: 20px;
+  text-transform: uppercase;
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+  animation: pulse 3s linear infinite;
+  z-index: 999;
+}
+
+.pulse_btn:hover {
+  color: #224953;
+  text-shadow: 0 0 1px #02191f;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 188, 140, 0.7), 0 0 0 0 rgba(0, 188, 140, 0.7);
+  }
+  40% {
+    box-shadow: 0 0 0 15px rgba(0, 188, 140, 0), 0 0 0 0 rgba(0, 188, 140, 0.7);
+  }
+  80% {
+    box-shadow: 0 0 0 15px rgba(0, 188, 140, 0), 0 0 0 10px rgba(0, 188, 140, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 188, 140, 0), 0 0 0 10px rgba(0, 188, 140, 0);
+  }
+}

@@ -30,7 +30,7 @@
   background: rgba(255, 255, 255, 0.2);
 }
 .item-list .list-group-item span:nth-child(1) {
-  width: 300px;
+  width: 100%;
 }
 .item-list .list-group-item span:nth-child(2) {
   width: 200px;

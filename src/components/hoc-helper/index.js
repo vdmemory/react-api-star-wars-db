@@ -1,2 +1,3 @@
 import withData from "./withData";
-export default withData;
+import withSwapiService from "./withSwapiService";
+export { withData, withSwapiService };

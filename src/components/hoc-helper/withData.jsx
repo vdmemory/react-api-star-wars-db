@@ -1,13 +1,21 @@
 import React, { Component } from "react";
 import Loader from "../loader";
 
-function withData(View, getData) {
+function withData(View) {
   return class extends Component {
     state = {
       itemList: null
     };
     componentDidMount() {
-      getData().then(itemList => {
+      this.updateItem();
+    }
+    componentDidUpdate(prevProps) {
+      if (this.props.getData !== prevProps.getData) {
+        this.updateItem();
+      }
+    }
+    updateItem() {
+      this.props.getData().then(itemList => {
         this.setState({
           itemList
         });

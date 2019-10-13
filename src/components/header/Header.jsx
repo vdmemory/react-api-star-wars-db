@@ -2,7 +2,7 @@ import React from "react";
 
 import "./header.css";
 
-export default function Header() {
+export default function Header({ onSeviceChange }) {
   return (
     <div className="header d-flex">
       <h3>
@@ -37,6 +37,10 @@ export default function Header() {
           </a>
         </li>
       </ul>
+
+      <div className="pulse_btn" onClick={onSeviceChange}>
+        Change Service
+      </div>
     </div>
   );
 }

@@ -1,13 +1,10 @@
 import React, { Component, Children, cloneElement } from "react";
 
-// import SwapiService from "../../services/swapi-service";
 import Loader from "../loader";
 
 import "./item-details.css";
 
-export default class PersonDetails extends Component {
-  // swapiService = new SwapiService();
-
+export default class ItemDetails extends Component {
   state = {
     item: null,
     image: null,
@@ -19,7 +16,11 @@ export default class PersonDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.itemId !== prevProps.itemId) {
+    if (
+      this.props.itemId !== prevProps.itemId ||
+      this.props.getData !== prevProps.getData ||
+      this.props.getImage !== prevProps.getImage
+    ) {
       this.setState({ loader: true });
       this.updateItem();
     }
@@ -47,7 +48,6 @@ export default class PersonDetails extends Component {
     if (loader) {
       return <Loader />;
     }
-    // const { id, name, gender, birthYear, eyeColor } = item;
     const { name } = item;
     return (
       <div className="item-details card">
@@ -57,7 +57,6 @@ export default class PersonDetails extends Component {
           <h4>{name}</h4>
           <ul className="list-group list-group-flush">
             {Children.map(this.props.children, child => {
-              // console.log(cloneElement(child));
               return cloneElement(child, { item });
             })}
           </ul>
@@ -72,7 +71,6 @@ export function Record({ item, field, label }) {
     <li className="list-group-item">
       <span className="term">{label}</span>
       <span>{item[field]}</span>
-      {/* <span>{field}</span> */}
     </li>
   );
 }
