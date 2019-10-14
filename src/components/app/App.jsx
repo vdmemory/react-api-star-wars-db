@@ -9,7 +9,7 @@ import Header from "../header";
 import RandomPlanet from "../random-planet";
 import { PeoplePage, PlanetPage, StarshipPage } from "../pages";
 
-import Animation from "../random-planet/animation";
+import Animation from "../random-planet/Animation";
 
 import "./app.css";
 
@@ -38,13 +38,13 @@ export default class App extends Component {
               <PeoplePage />
             </ErrorBoundry>
 
-            {/* <ErrorBoundry>
+            <ErrorBoundry>
               <PlanetPage />
             </ErrorBoundry>
 
             <ErrorBoundry>
               <StarshipPage />
-            </ErrorBoundry> */}
+            </ErrorBoundry>
 
             <Animation />
           </div>

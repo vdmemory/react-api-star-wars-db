@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Loader from "../loader";
 import Error from "../error";
 
-const withData = View => {
+export default function withData(View) {
   return class extends Component {
     state = {
       data: null,
@@ -56,6 +56,4 @@ const withData = View => {
       return <View {...this.props} data={data} />;
     }
   };
-};
-
-export default withData;
+}

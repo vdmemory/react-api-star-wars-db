@@ -1,7 +1,12 @@
 .header {
   align-items: center;
   margin-top: 0.5rem;
-  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+.header .list {
+  margin: 0;
+  padding: 0;
 }
 
 .header .item {
@@ -14,7 +19,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #002b36;
+  background: rgba(0, 43, 54, 0.4);
   position: relative;
 }
 

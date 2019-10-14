@@ -5,9 +5,9 @@ import "./header.css";
 export default function Header({ onSeviceChange }) {
   return (
     <div className="header d-flex">
-      <h3>
+      {/* <h3>
         <a href="#">Star DB</a>
-      </h3>
+      </h3> */}
       <ul className="list d-flex">
         <li className="item">
           <a href="#" className="link">

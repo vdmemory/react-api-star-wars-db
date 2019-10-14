@@ -1,6 +1,9 @@
-.random-planet {
+.container .random-planet {
   display: flex;
   padding: 1rem;
+
+  background-color: rgb(7, 54, 66, 0.4);
+  color: rgb(199, 202, 202);
 }
 
 .random-planet .planet-image {

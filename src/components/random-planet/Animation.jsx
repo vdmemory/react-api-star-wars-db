@@ -1,4 +1,3 @@
-import random from "lodash/random";
 import React, { Component } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import uuid from "uuid/v1";
