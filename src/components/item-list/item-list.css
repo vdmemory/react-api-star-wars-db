@@ -11,6 +11,7 @@
 .item-list .list-group-item {
   display: flex;
   background: rgba(7, 54, 66, 0.5);
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.4);
   padding: 10px 20px;
   color: rgb(199, 202, 202);
   margin: 5px 0;
@@ -18,16 +19,16 @@
   cursor: pointer;
 }
 .item-list .list-group-item:nth-child(1) {
-  background: rgba(7, 54, 66, 1);
-}
-.item-list .list-group-item:nth-child(2) {
-  background: rgba(7, 54, 66, 0.9);
-}
-.item-list .list-group-item:nth-child(3) {
   background: rgba(7, 54, 66, 0.8);
 }
-.item-list .list-group-item:nth-child(4) {
+.item-list .list-group-item:nth-child(2) {
   background: rgba(7, 54, 66, 0.7);
+}
+.item-list .list-group-item:nth-child(3) {
+  background: rgba(7, 54, 66, 0.6);
+}
+.item-list .list-group-item:nth-child(4) {
+  background: rgba(7, 54, 66, 0.5);
 }
 .item-list .list-group-item span:nth-child(1) {
   width: 100%;

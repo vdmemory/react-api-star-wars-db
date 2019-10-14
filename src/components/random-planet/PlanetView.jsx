@@ -1,5 +1,8 @@
 import React from "react";
 
+// import { CSSTransition, TransitionGroup } from "react-transition-group";
+// import "./animation.css";
+
 export default function PlanetView({ planet }) {
   const { id, name, population, climate, terrain } = planet;
   return (
@@ -9,6 +12,7 @@ export default function PlanetView({ planet }) {
         className="planet-image"
         src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
       />
+
       <div>
         <h4>{name}</h4>
         <ul className="list-group list-group-flush">

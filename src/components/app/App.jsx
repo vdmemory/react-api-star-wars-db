@@ -9,8 +9,6 @@ import Header from "../header";
 import RandomPlanet from "../random-planet";
 import { PeoplePage, PlanetPage, StarshipPage } from "../pages";
 
-import Animation from "../random-planet/Animation";
-
 import "./app.css";
 
 export default class App extends Component {
@@ -32,7 +30,9 @@ export default class App extends Component {
         <SwapiServiceProvider value={this.state.swapiService}>
           <div>
             <Header onSeviceChange={this.onServiceChange} />
-            <RandomPlanet />
+            <ErrorBoundry>
+              <RandomPlanet />
+            </ErrorBoundry>
 
             <ErrorBoundry>
               <PeoplePage />
@@ -45,8 +45,6 @@ export default class App extends Component {
             <ErrorBoundry>
               <StarshipPage />
             </ErrorBoundry>
-
-            <Animation />
           </div>
         </SwapiServiceProvider>
       </ErrorBoundry>
