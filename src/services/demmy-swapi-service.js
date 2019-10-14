@@ -2,22 +2,48 @@ export default class DummySwapiService {
   _people = [
     {
       id: 1,
-      name: "Bilbo Baggins [TEST DATA]",
+      name: "Frodo Baggins [TEST DATA]",
       gender: "male",
       birthYear: "long ago",
       eyeColor: "dark brown",
       height: "102",
       mass: "38"
     },
-
     {
       id: 2,
-      name: "Frodo Baggins [TEST DATA]",
+      name: "Bilbo Baggins [TEST DATA]",
       gender: "male",
       birthYear: "long ago",
       eyeColor: "dark brown",
       height: "104",
       mass: "41"
+    },
+    {
+      id: 3,
+      name: "Frodo Baggins [TEST DATA]",
+      gender: "male",
+      birthYear: "long ago",
+      eyeColor: "dark brown",
+      height: "102",
+      mass: "38"
+    },
+    {
+      id: 4,
+      name: "Bilbo Baggins [TEST DATA]",
+      gender: "male",
+      birthYear: "long ago",
+      eyeColor: "dark brown",
+      height: "104",
+      mass: "41"
+    },
+    {
+      id: 5,
+      name: "Frodo Baggins [TEST DATA]",
+      gender: "male",
+      birthYear: "long ago",
+      eyeColor: "dark brown",
+      height: "102",
+      mass: "38"
     }
   ];
 
@@ -37,6 +63,30 @@ export default class DummySwapiService {
       terrain: "rock, desert, mountain, barren",
       climate: "temperate, arid",
       diameter: "12.104 km"
+    },
+    {
+      id: 3,
+      name: "Earth [TEST DATA]",
+      population: "7.530.000.000",
+      terrain: "swamp, jungles",
+      climate: "temperate",
+      diameter: "12.742 km"
+    },
+    {
+      id: 4,
+      name: "Venus [TEST DATA]",
+      population: "not known",
+      terrain: "rock, desert, mountain, barren",
+      climate: "temperate, arid",
+      diameter: "12.104 km"
+    },
+    {
+      id: 5,
+      name: "Earth [TEST DATA]",
+      population: "7.530.000.000",
+      terrain: "swamp, jungles",
+      climate: "temperate",
+      diameter: "12.742 km"
     }
   ];
 
@@ -51,7 +101,59 @@ export default class DummySwapiService {
       crew: 1000,
       passengers: 50,
       cargoCapacity: 100,
-      starshipClass: "Deep Space Mobile Battlestation",
+      starshipClass: "Galaxy-class",
+      hyperdriveRating: "4"
+    },
+    {
+      id: 2,
+      name: "USS Enterprise [TEST DATA]",
+      model: "NCC-1701-C",
+      manufacturer: "Northrop Grumman Shipbuilding",
+      costInCredits: "not known",
+      length: "approx 300 meters",
+      crew: 1000,
+      passengers: 50,
+      cargoCapacity: 100,
+      starshipClass: "Galaxy-class",
+      hyperdriveRating: "4"
+    },
+    {
+      id: 3,
+      name: "USS Enterprise [TEST DATA]",
+      model: "NCC-1701-C",
+      manufacturer: "Northrop Grumman Shipbuilding",
+      costInCredits: "not known",
+      length: "approx 300 meters",
+      crew: 1000,
+      passengers: 50,
+      cargoCapacity: 100,
+      starshipClass: "Galaxy-class",
+      hyperdriveRating: "4"
+    },
+    {
+      id: 4,
+      name: "USS Enterprise [TEST DATA]",
+      model: "NCC-1701-C",
+      manufacturer: "Northrop Grumman Shipbuilding",
+      costInCredits: "not known",
+      length: "approx 300 meters",
+      crew: 1000,
+      passengers: 50,
+      cargoCapacity: 100,
+      starshipClass: "Galaxy-class",
+      hyperdriveRating: "4"
+    },
+    {
+      id: 5,
+      name: "USS Enterprise [TEST DATA]",
+      model: "NCC-1701-C",
+      manufacturer: "Northrop Grumman Shipbuilding",
+      costInCredits: "not known",
+      length: "approx 300 meters",
+      crew: 1000,
+      passengers: 50,
+      cargoCapacity: 100,
+      starshipClass: "Galaxy-class",
       hyperdriveRating: "4"
     }
   ];
@@ -81,14 +183,14 @@ export default class DummySwapiService {
   };
 
   getPersonImage = () => {
-    return `https://placeimg.com/400/500/people`;
+    return `https://vignette.wikia.nocookie.net/lotr/images/4/41/%D0%A4%D1%80%D0%BE%D0%B4%D0%BE_%D0%91%D1%8D%D0%B3%D0%B3%D0%B8%D0%BD%D1%81.jpg/revision/latest?cb=20141209145510&path-prefix=ru`;
   };
 
   getStarshipImage = () => {
-    return `https://placeimg.com/600/400/tech`;
+    return `https://www.super-hobby.ru/zdjecia/4/1/4/3012_rd.jpg`;
   };
 
   getPlanetImage = () => {
-    return `https://placeimg.com/400/400/nature`;
+    return `https://kipmu.ru/wp-content/uploads/kpzml.jpg`;
   };
 }

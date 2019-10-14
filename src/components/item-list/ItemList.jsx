@@ -1,10 +1,15 @@
 import React from "react";
 import "./item-list.css";
 
-export default function ItemList({ itemList, onItemSelected, children }) {
-  const items = itemList.map(item => {
+export default function ItemList({
+  data,
+  onItemSelected,
+  children: renderLabel
+}) {
+  const items = data.map(item => {
     const { id } = item;
-    const label = children(item);
+    const label = renderLabel(item);
+
     return (
       <li
         className="list-group-item"

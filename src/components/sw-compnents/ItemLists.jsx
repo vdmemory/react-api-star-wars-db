@@ -9,45 +9,11 @@ const withChildFunction = (Wrapped, fn) => {
   };
 };
 
-//
-
 const renderYearAndName = ({ birthYear, name }) => (
   <span>
     {name} ({birthYear})
   </span>
 );
-
-const mapPersonMethodToProps = swapiService => {
-  return {
-    getData: swapiService.getAllPeople
-  };
-};
-
-const PersonList = withSwapiService(
-  withData(withChildFunction(ItemList, renderYearAndName)),
-  mapPersonMethodToProps
-);
-
-//
-
-const renderTerrainAndName = ({ terrain, name }) => (
-  <span>
-    {name} ({terrain})
-  </span>
-);
-
-const mapPlanetMethodToProps = swapiService => {
-  return {
-    getData: swapiService.getAllPlanets
-  };
-};
-
-const PlanetList = withSwapiService(
-  withData(withChildFunction(ItemList, renderTerrainAndName)),
-  mapPlanetMethodToProps
-);
-
-//
 
 const renderModelAndName = ({ model, name }) => (
   <span>
@@ -55,15 +21,43 @@ const renderModelAndName = ({ model, name }) => (
   </span>
 );
 
-const mapStarshipMethodToProps = swapiService => {
+const renderTerrainAndName = ({ terrain, name }) => (
+  <span>
+    {name} ({terrain})
+  </span>
+);
+
+const mapPersonMethodsToProps = swapiService => {
+  return {
+    getData: swapiService.getAllPeople
+  };
+};
+
+const mapPlanetMethodsToProps = swapiService => {
+  return {
+    getData: swapiService.getAllPlanets
+  };
+};
+
+const mapStarshipMethodsToProps = swapiService => {
   return {
     getData: swapiService.getAllStarships
   };
 };
 
+const PersonList = withSwapiService(
+  withData(withChildFunction(ItemList, renderYearAndName)),
+  mapPersonMethodsToProps
+);
+
+const PlanetList = withSwapiService(
+  withData(withChildFunction(ItemList, renderTerrainAndName)),
+  mapPlanetMethodsToProps
+);
+
 const StarshipList = withSwapiService(
   withData(withChildFunction(ItemList, renderModelAndName)),
-  mapStarshipMethodToProps
+  mapStarshipMethodsToProps
 );
 
 export { PersonList, PlanetList, StarshipList };
