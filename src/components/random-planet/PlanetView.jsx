@@ -1,8 +1,5 @@
 import React from "react";
 
-// import { CSSTransition, TransitionGroup } from "react-transition-group";
-// import "./animation.css";
-
 export default function PlanetView({ planet }) {
   const { id, name, population, climate, terrain } = planet;
   return (

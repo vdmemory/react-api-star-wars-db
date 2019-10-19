@@ -19,20 +19,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: rgba(0, 43, 54, 0.4); */
   position: relative;
 }
 
 .header a:hover {
   text-decoration: none;
 }
-
-.header h3 a {
-  color: #00bc8c;
+.header .logo {
+  display: block;
+  position: relative;
+  height: 100px;
+  width: 160px;
 }
-
-.header h3 a:hover {
-  color: #15e2af;
+.header .logo img {
+  position: absolute;
+  height: 100px;
+  transition: 0.5s;
+  margin-top: 10px;
+}
+.header .logo:hover img {
+  margin-top: 5px;
+  height: 110px;
 }
 
 .item .link {

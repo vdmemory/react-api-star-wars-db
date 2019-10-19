@@ -8,12 +8,15 @@ import ErrorBoundry from "../error-boundry";
 import Header from "../header";
 import RandomPlanet from "../random-planet";
 import { PeoplePage, PlanetPage, StarshipPage } from "../pages";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import { StarshipDetails } from "../sw-compnents";
 
 import "./app.css";
 
 export default class App extends Component {
   state = {
-    swapiService: new DemmySwapiService()
+    swapiService: new SwapiService()
   };
 
   onServiceChange = () => {
@@ -28,24 +31,27 @@ export default class App extends Component {
     return (
       <ErrorBoundry>
         <SwapiServiceProvider value={this.state.swapiService}>
-          <div>
-            <Header onSeviceChange={this.onServiceChange} />
-            <ErrorBoundry>
+          <Router>
+            <div>
+              <Header onSeviceChange={this.onServiceChange} />
               <RandomPlanet />
-            </ErrorBoundry>
-
-            <ErrorBoundry>
-              <PeoplePage />
-            </ErrorBoundry>
-
-            <ErrorBoundry>
-              <PlanetPage />
-            </ErrorBoundry>
-
-            <ErrorBoundry>
-              <StarshipPage />
-            </ErrorBoundry>
-          </div>
+              <Route
+                path="/"
+                render={() => <h2>WELCOME TO STAR WARS DB</h2>}
+                exact
+              />
+              <Route path="/people/:id?" component={PeoplePage} />
+              <Route path="/planets" component={PlanetPage} />
+              <Route path="/starships" exact component={StarshipPage} />
+              <Route
+                path="/starships/:id"
+                render={({ match }) => {
+                  const { id } = match.params;
+                  return <StarshipDetails itemId={id} />;
+                }}
+              />
+            </div>
+          </Router>
         </SwapiServiceProvider>
       </ErrorBoundry>
     );
