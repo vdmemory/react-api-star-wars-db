@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default function PlanetView({ planet }) {
   const { id, name, population, climate, terrain } = planet;
@@ -9,7 +10,6 @@ export default function PlanetView({ planet }) {
         className="planet-image"
         src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
       />
-
       <div>
         <h4>{name}</h4>
         <ul className="list-group list-group-flush">
@@ -30,3 +30,17 @@ export default function PlanetView({ planet }) {
     </>
   );
 }
+PlanetView.defaultProps = {
+  id: 5,
+  name: "Planet",
+  population: "Population",
+  climate: "Climate",
+  terrain: "Terrain"
+};
+PlanetView.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  population: PropTypes.string,
+  climate: PropTypes.string,
+  terrain: PropTypes.string
+};

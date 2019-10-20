@@ -9,23 +9,19 @@ export default function withData(View) {
       loading: true,
       error: false
     };
-
     componentDidUpdate(prevProps) {
       if (this.props.getData !== prevProps.getData) {
         this.update();
       }
     }
-
     componentDidMount() {
       this.update();
     }
-
     update() {
       this.setState({
         loading: true,
         error: false
       });
-
       this.props
         .getData()
         .then(data => {
@@ -44,15 +40,12 @@ export default function withData(View) {
 
     render() {
       const { data, loading, error } = this.state;
-
       if (loading) {
         return <Loader />;
       }
-
       if (error) {
         return <Error />;
       }
-
       return <View {...this.props} data={data} />;
     }
   };
